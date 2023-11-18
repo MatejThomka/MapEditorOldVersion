@@ -6,7 +6,7 @@ import com.components.menus.submenus.FileMenu;
 import com.components.menus.submenus.HelpMenu;
 import com.components.menus.submenus.ViewMenu;
 import com.services.MapEditorServices;
-import com.tiles.IconSetter;
+import com.components.managers.IconManager;
 import javax.swing.JMenuBar;
 
 public class BarMenu extends JMenuBar {
@@ -15,8 +15,8 @@ public class BarMenu extends JMenuBar {
   ViewMenu view = new ViewMenu();
   HelpMenu help = new HelpMenu();
 
-  public BarMenu(IconSetter iconSetter, MapEditorServices mapEditorServices) {
-    file = new FileMenu(iconSetter, mapEditorServices);
+  public BarMenu(IconManager iconManager, MapEditorServices mapEditorServices) {
+    file = new FileMenu(iconManager, mapEditorServices);
     add(file);
     add(edit);
     add(view);

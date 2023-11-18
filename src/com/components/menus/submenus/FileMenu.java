@@ -10,7 +10,7 @@ import com.components.menus.submenus.items.file.Open;
 import com.components.menus.submenus.items.file.Save;
 import com.components.menus.submenus.items.file.Settings;
 import com.services.MapEditorServices;
-import com.tiles.IconSetter;
+import com.components.managers.IconManager;
 import javax.swing.JMenu;
 
 
@@ -24,8 +24,8 @@ public class FileMenu extends JMenu {
   Settings settings = new Settings();
   Exit exit = new Exit();
 
-  public FileMenu(IconSetter iconSetter, MapEditorServices mapEditorServices) {
-    newMap = new NewMap(iconSetter, mapEditorServices);
+  public FileMenu(IconManager iconManager, MapEditorServices mapEditorServices) {
+    newMap = new NewMap(iconManager, mapEditorServices);
     importTiles = new ImportTiles(mapEditorServices);
     save = new Save(mapEditorServices);
     setText("File");

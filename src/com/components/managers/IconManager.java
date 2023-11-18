@@ -1,14 +1,14 @@
-package com.tiles;
+package com.components.managers;
 
 import javax.swing.ImageIcon;
 
-public class IconSetter {
+public class IconManager {
 
 
   private ImageIcon icon;
   private String name;
 
-  public IconSetter() {
+  public IconManager() {
     this.icon = new ImageIcon();
   }
 

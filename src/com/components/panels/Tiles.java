@@ -1,7 +1,7 @@
 package com.components.panels;
 
-import com.tiles.IconSetter;
-import com.tiles.Tile;
+import com.components.managers.IconManager;
+import com.maps.Tile;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
@@ -14,11 +14,11 @@ import javax.swing.JPanel;
 public class Tiles extends JPanel {
 
   JButton[] button = new JButton[100];
-  IconSetter iconSetter;
+  IconManager iconManager;
 
   // Constructor
-  public Tiles(IconSetter iconSetter) {
-    this.iconSetter = iconSetter;
+  public Tiles(IconManager iconManager) {
+    this.iconManager = iconManager;
     setPreferredSize(new Dimension(1325, 212));
     setLayout(new GridLayout(4, 25));
     setAlignmentX(LEFT_ALIGNMENT);
@@ -36,8 +36,8 @@ public class Tiles extends JPanel {
       button[index].setIcon(icon);
       button[index].setBorder(BorderFactory.createLineBorder(Color.WHITE, 1));
       button[index].addActionListener(e -> {
-        iconSetter.setIcon((ImageIcon) button[index].getIcon());
-        iconSetter.setName(tile.getName());
+        iconManager.setIcon((ImageIcon) button[index].getIcon());
+        iconManager.setName(tile.getName());
       });
       add(button[index]);
     } else {
@@ -45,7 +45,7 @@ public class Tiles extends JPanel {
       button[index].setPreferredSize(new Dimension(48, 48));
       button[index].setBackground(Color.BLACK);
       button[index].setBorder(BorderFactory.createLineBorder(Color.WHITE, 1));
-      button[index].addActionListener(e -> iconSetter.setIcon((ImageIcon) button[index].getIcon()));
+      button[index].addActionListener(e -> iconManager.setIcon((ImageIcon) button[index].getIcon()));
       add(button[index]);
     }
 

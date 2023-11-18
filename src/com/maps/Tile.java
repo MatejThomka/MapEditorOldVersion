@@ -1,4 +1,4 @@
-package com.tiles;
+package com.maps;
 
 import java.awt.image.BufferedImage;
 

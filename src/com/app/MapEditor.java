@@ -13,7 +13,7 @@ import com.components.panels.MainMap;
 import com.components.panels.TilesCard;
 import com.maps.Map;
 import com.services.MapEditorServices;
-import com.tiles.IconSetter;
+import com.components.managers.IconManager;
 import java.awt.Color;
 import java.awt.GridBagLayout;
 import javax.swing.*;
@@ -22,12 +22,12 @@ public class MapEditor extends JFrame
     implements MapEditorServices {
 
 
-  IconSetter iconSetter = new IconSetter();
+  IconManager iconManager = new IconManager();
   Map map = new Map();
   MainMap mainMap = new MainMap(map);
   Minimap minimap = new Minimap(map);
-  BarMenu barMenu = new BarMenu(this.iconSetter, this);
-  TilesCard tilesCard = new TilesCard(this.iconSetter);
+  BarMenu barMenu = new BarMenu(this.iconManager, this);
+  TilesCard tilesCard = new TilesCard(this.iconManager);
   MapTitle mapTitle = new MapTitle();
   MinimapTitle minimapTitle = new MinimapTitle();
   TilesTitle tilesTitle = new TilesTitle();

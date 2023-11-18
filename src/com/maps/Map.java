@@ -3,8 +3,7 @@ package com.maps;
 
 import com.components.managers.ImageManager;
 import com.services.MapEditorServices;
-import com.tiles.IconSetter;
-import com.tiles.Tile;
+import com.components.managers.IconManager;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Image;
@@ -31,7 +30,7 @@ public class Map extends JPanel implements MouseWheelListener {
   private Tile[] tiles;
   private JButton[] buttons;
   Image image;
-  IconSetter iconSetter;
+  IconManager iconManager;
   MapEditorServices mapEditorServices;
   JFileChooser chooser = new JFileChooser();
   File file;
@@ -108,12 +107,12 @@ public class Map extends JPanel implements MouseWheelListener {
       buttons[i].addActionListener(e -> {
         ImageManager imageManager = new ImageManager();
 
-        if (iconSetter.getIcon() != null) {
-          image = iconSetter.getIcon().getImage();
+        if (iconManager.getIcon() != null) {
+          image = iconManager.getIcon().getImage();
           image = imageManager.scaledImage((BufferedImage) image, tileSize, tileSize);
           ImageIcon icon = new ImageIcon(image);
           buttons[index].setIcon(icon);
-          tiles[index].setName(iconSetter.getName());
+          tiles[index].setName(iconManager.getName());
         } else {
           buttons[index].setIcon(null);
         }
@@ -149,9 +148,9 @@ public class Map extends JPanel implements MouseWheelListener {
   public void fillIt() {
 
     for (int i = 0; i < buttons.length; i++) {
-      tiles[i].setName(iconSetter.getName());
+      tiles[i].setName(iconManager.getName());
 
-      buttons[i].setIcon(iconSetter.getIcon());
+      buttons[i].setIcon(iconManager.getIcon());
     }
 
     revalidate();

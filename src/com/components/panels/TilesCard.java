@@ -1,8 +1,8 @@
 package com.components.panels;
 
 import com.components.managers.ImageManager;
-import com.tiles.IconSetter;
-import com.tiles.Tile;
+import com.components.managers.IconManager;
+import com.maps.Tile;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.GridBagConstraints;
@@ -20,10 +20,10 @@ public class TilesCard extends JPanel {
   private final Tile[] tiles = new Tile[1000];
   private int currentPanelIndex = 0;
   CardLayout cardLayout = new CardLayout();
-  IconSetter iconSetter;
+  IconManager iconManager;
 
-  public TilesCard(IconSetter iconSetter) {
-    this.iconSetter = iconSetter;
+  public TilesCard(IconManager iconManager) {
+    this.iconManager = iconManager;
     setLayout(cardLayout);
     setBackground(Color.BLACK);
     loadAllTiles(null);
@@ -111,7 +111,7 @@ public class TilesCard extends JPanel {
     int index = 0;
 
     for (int i = 0; i < panel.length; i++) {
-      panel[i] = new Tiles(this.iconSetter);
+      panel[i] = new Tiles(this.iconManager);
       for (int j = 0; j < panel[i].button.length; j++) {
         panel[i].addButtons(j, tiles[index]);
         index++;

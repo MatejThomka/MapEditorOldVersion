@@ -5,20 +5,20 @@ import com.maps.Map;
 import com.maps.MediumMap;
 import com.maps.SmallMap;
 import com.services.MapEditorServices;
-import com.tiles.IconSetter;
+import com.components.managers.IconManager;
 import java.awt.event.ActionEvent;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
 public class NewMap extends JMenuItem {
   Map map;
-  IconSetter iconSetter;
+  IconManager iconManager;
   MapEditorServices mapEditorServices;
 
 
 
-  public NewMap(IconSetter iconSetter, MapEditorServices mapEditorServices) {
-    this.iconSetter = iconSetter;
+  public NewMap(IconManager iconManager, MapEditorServices mapEditorServices) {
+    this.iconManager = iconManager;
     this.mapEditorServices = mapEditorServices;
     setText("New Map");
     addActionListener(this::openMapOptionPane);
@@ -33,11 +33,11 @@ public class NewMap extends JMenuItem {
 
 
     if (option == 0) {
-      map = new SmallMap(iconSetter, mapEditorServices);
+      map = new SmallMap(iconManager, mapEditorServices);
     } else if (option == 1) {
-      map = new MediumMap(iconSetter, mapEditorServices);
+      map = new MediumMap(iconManager, mapEditorServices);
     } else if (option == 2) {
-      map = new LargeMap(iconSetter, mapEditorServices);
+      map = new LargeMap(iconManager, mapEditorServices);
     }
 
     if (map != null && mapEditorServices != null) {
